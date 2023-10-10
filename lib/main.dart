@@ -14,10 +14,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: CategoryDetails.routeName,
+      initialRoute: HomeScreen.routeName,
       routes: {
         HomeScreen.routeName: (context) => HomeScreen(),
-        CategoryDetails.routeName: (context) => CategoryDetails(),
       },
       debugShowCheckedModeBanner: false,
       theme: MyTheme.Theme,

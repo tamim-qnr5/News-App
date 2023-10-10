@@ -1,26 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/API/api_maneger.dart';
-import 'package:news_app/Catagory/tab_contaner.dart';
+import 'package:news_app/Catagory/category.dart';
+import 'package:news_app/tab/tab_contaner.dart';
 import 'package:news_app/Model/SourceResponce.dart';
 import 'package:news_app/MyTheme.dart';
 
-class CategoryDetails extends StatelessWidget {
-  static const String routeName = 'Category';
+class CategoryDetails extends StatefulWidget {
+  
+  CategoryME category;
+  CategoryDetails({required this.category});
+  @override
+  State<CategoryDetails> createState() => _CategoryDetailsState();
+}
 
+class _CategoryDetailsState extends State<CategoryDetails> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(icon: Icon(Icons.menu), onPressed: () {  },),
-        centerTitle: true,
-        title: Text('News App'),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(
-            bottom: Radius.circular(30),
-          ),
-        ),
-      ),
-      body: FutureBuilder<SourceResponse?>(
+    return FutureBuilder<SourceResponse?>(
+        future:ApiManager.getSource(widget.category.id),
         builder: (context,snapshot){
           if(snapshot.connectionState == ConnectionState.waiting)
             {
@@ -49,10 +46,8 @@ class CategoryDetails extends StatelessWidget {
                 }
               var sourceList = snapshot.data?.sources ?? [];
               return TabContainer(sourceList: sourceList);
-          
+
         },
-        future: ApiManager.getSource(),
-      ),
-    );
+      );
   }
 }
