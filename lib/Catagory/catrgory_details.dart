@@ -6,9 +6,8 @@ import 'package:news_app/Model/SourceResponce.dart';
 import 'package:news_app/MyTheme.dart';
 
 class CategoryDetails extends StatefulWidget {
-  
   CategoryME category;
-  CategoryDetails({required this.category});
+  CategoryDetails({required this.category,});
   @override
   State<CategoryDetails> createState() => _CategoryDetailsState();
 }

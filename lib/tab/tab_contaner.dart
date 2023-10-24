@@ -8,6 +8,7 @@ import '../Model/SourceResponce.dart';
 class TabContainer extends StatefulWidget {
 List<Source> sourceList;
 
+
 TabContainer({required this.sourceList});
 
   @override
@@ -38,7 +39,7 @@ var selectedTab = 0;
                 source: source
             )).toList()
         ),
-        Expanded(child: NewsContainer(source: widget.sourceList[selectedTab]))
+        Expanded(child: NewsContainer(source: widget.sourceList[selectedTab],))
       ],
     ),);
   }

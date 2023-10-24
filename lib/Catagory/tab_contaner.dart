@@ -1,11 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:news_app/API/news_container.dart';
+
 import 'package:news_app/Catagory/tab_item.dart';
 
 import '../Model/SourceResponce.dart';
+import '../News/news_container.dart';
 
 class TabContainer extends StatefulWidget {
+
 List<Source> sourceList;
 
 TabContainer({required this.sourceList});

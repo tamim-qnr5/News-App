@@ -3,8 +3,11 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:news_app/API/api_constants.dart';
 import 'package:news_app/Catagory/category.dart';
+import 'package:news_app/Home/home_screen.dart';
 import 'package:news_app/Model/NewsResponse.dart';
 import 'package:news_app/Model/SourceResponce.dart';
+
+import '../News/news_container.dart';
 //https://newsapi.org/v2/top-headlines/sources?apiKey=546e2bedf1f242eeba68117d49a5ea9c
 class ApiManager{
 
@@ -17,6 +20,8 @@ class ApiManager{
       {
         'apiKey' : '546e2bedf1f242eeba68117d49a5ea9c',
         'category' : categoryId ,
+
+
       }
     );
     try{
@@ -29,12 +34,14 @@ class ApiManager{
     }
 
   }
-  static Future<NewsResponse> getNewsBySourceId(String sourceId)async{
+  static Future<NewsResponse> getNewsBySourceId(String sourceId,int page)async{
     //https://newsapi.org/v2/everything?q=bitcoin&apiKey=546e2bedf1f242eeba68117d49a5ea9c
     Uri url = Uri.https(ApiConstants.baseUrl,ApiConstants.NewsApi,
         {
           'apiKey' : '546e2bedf1f242eeba68117d49a5ea9c',
           'sources' : sourceId,
+          'pageSize' : '4',
+          'page' : '1'
           
     });
     try{
