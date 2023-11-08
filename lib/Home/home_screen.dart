@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:news_app/Catagory/category.dart';
 import 'package:news_app/Catagory/catrgory_details.dart';
 import 'package:news_app/MyTheme.dart';
-
 import '../API/api_maneger.dart';
 import '../Catagory/category_fragments.dart';
 import '../Settings.dart';
